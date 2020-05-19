@@ -1,12 +1,15 @@
 # File for bicycle type Classification Main source is MachineLearningMastery.com
 
 # split into train and test set
+g_path = 'C:/Users/Shadow/Documents/GitHub/' #general path for files
+# fit a mask rcnn on the kangaroo dataset
 from os import listdir
 from xml.etree import ElementTree
 from numpy import zeros
 from numpy import asarray
 from mrcnn.utils import Dataset
-g_path = 'C:/Users/Shadow/Documents/GitHub/' #general path for files
+from mrcnn.config import Config
+from mrcnn.model import MaskRCNN
 
 # class that defines and loads the kangaroo dataset
 class KangarooDataset(Dataset):
@@ -80,14 +83,31 @@ class KangarooDataset(Dataset):
 		info = self.image_info[image_id]
 		return info['path']
 
-# train set
+# define a configuration for the model
+class KangarooConfig(Config):
+	# define the name of the configuration
+	NAME = "kangaroo_cfg"
+	# number of classes (background + kangaroo)
+	NUM_CLASSES = 1 + 1
+	# number of training steps per epoch
+	STEPS_PER_EPOCH = 131
+
+# prepare train set
 train_set = KangarooDataset()
 train_set.load_dataset(g_path+'kangaroo', is_train=True)
 train_set.prepare()
 print('Train: %d' % len(train_set.image_ids))
-
-# test/val set
+# prepare test/val set
 test_set = KangarooDataset()
 test_set.load_dataset(g_path+'kangaroo', is_train=False)
 test_set.prepare()
 print('Test: %d' % len(test_set.image_ids))
+# prepare config
+config = KangarooConfig()
+config.display()
+# define the model
+model = MaskRCNN(mode='training', model_dir='./', config=config)
+# load weights (mscoco) and exclude the output layers
+model.load_weights('mask_rcnn_coco.h5', by_name=True, exclude=["mrcnn_class_logits", "mrcnn_bbox_fc",  "mrcnn_bbox", "mrcnn_mask"])
+# train weights (output layers or 'heads')
+model.train(train_set, test_set, learning_rate=config.LEARNING_RATE, epochs=5, layers='heads')
