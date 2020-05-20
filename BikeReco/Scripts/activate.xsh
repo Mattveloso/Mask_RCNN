@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"C:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco"
+$VIRTUAL_ENV = r"D:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

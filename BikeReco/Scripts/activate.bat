@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco"
+set "VIRTUAL_ENV=D:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

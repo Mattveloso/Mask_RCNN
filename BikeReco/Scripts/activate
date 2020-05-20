@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='C:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco'
+VIRTUAL_ENV='D:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

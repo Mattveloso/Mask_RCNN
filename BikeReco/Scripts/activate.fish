@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'C:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco'
+set -gx VIRTUAL_ENV 'D:\Users\Shadow\Documents\GitHub\Mask_RCNN\BikeReco'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3
