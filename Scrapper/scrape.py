@@ -26,20 +26,31 @@ def download(url, pathname):
             f.write(data)
             # update the progress bar manually
             progress.update(len(data))
+URLS=[
+'https://www.decathlon.com.br/bicicleta-de-estrada-triban-100-btwin/p',
+'https://www.decathlon.com.br/bicicleta-triban-rc100/p',
+'https://www.decathlon.com.br/bicicleta-infantil-de-estrada-aro-650-triban-100/p',
+'https://www.decathlon.com.br/bicicleta-de-estrada-triban-rc120/p',
+'https://www.decathlon.com.br/bicicleta-feminina-de-estrada-triban/p',
+'https://www.decathlon.com.br/bicicleta-estrada-ultra-af900/p',
+'https://www.decathlon.com.br/bicicleta-de-estrada-triban-rc500/p',
+'https://www.decathlon.com.br/bicicleta-de-estrada-triban-rc520/p',
+'https://www.decathlon.com.br/bicicleta-de-estrada-triban-540-cinza-e-preto/p'
+]
+#URL = 'https://www.decathlon.com.br/bicicleta-de-estrada-triban-100-btwin/p'
+for URL in URLS:
+    page=requests.get(URL)
 
-URL = 'https://www.decathlon.com.br/bicicleta-de-estrada-triban-100-btwin/p'
-page=requests.get(URL)
+    soup = BeautifulSoup(page.content, 'html.parser')
 
-soup = BeautifulSoup(page.content, 'html.parser')
+    # results = soup.find_all(id='image')
+    # for result in results:
+    #     link = result.find('a',class_='image-zoom')['href']
+    #     print(link)
 
-# results = soup.find_all(id='image')
-# for result in results:
-#     link = result.find('a',class_='image-zoom')['href']
-#     print(link)
-
-pics = soup.find_all(id='botaoZoom')
-Bikes =[]
-for pic in pics:
-    link = pic['zoom']
-    #Bikes.append(link)
-    download(link,'RoadBike')
+    pics = soup.find_all(id='botaoZoom')
+    Bikes =[]
+    for pic in pics:
+        link = pic['zoom']
+        #Bikes.append(link)
+        download(link,'RoadBike')

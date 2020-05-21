@@ -1,25 +1,39 @@
 <annotation>
 	<folder>my-project-name</folder>
-	<filename>RoadBike3.jpg</filename>
-	<path>/my-project-name/RoadBike3.jpg</path>
+	<filename>3.jpg</filename>
+	<path>/my-project-name/3.jpg</path>
 	<source>
 		<database>Unspecified</database>
 	</source>
 	<size>
-		<width>837</width>
-		<height>617</height>
+		<width>1000</width>
+		<height>1000</height>
 		<depth>3</depth>
 	</size>
+
+
 	<object>
 		<name>RoadBike</name>
 		<pose>Unspecified</pose>
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>191</xmin>
-			<ymin>292</ymin>
-			<xmax>503</xmax>
-			<ymax>557</ymax>
+			<xmin>325</xmin>
+			<ymin>502</ymin>
+			<xmax>812</xmax>
+			<ymax>801</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>RoadBike</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>-8</xmin>
+			<ymin>484</ymin>
+			<xmax>487</xmax>
+			<ymax>825</ymax>
 		</bndbox>
 	</object>
 </annotation>
