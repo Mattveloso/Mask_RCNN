@@ -72,9 +72,39 @@ def download(url, pathname):
 
 #MountainBikes
 URLS=[
-
+'https://www.decathlon.com.br/rr-st-500-grey/p',
+'https://www.decathlon.com.br/bicicleta-para-mountain-bike-rockrider-st-120/p',
+'https://www.decathlon.com.br/--st-120-purple-w/p',
+'https://www.decathlon.com.br/--btwin-rr-st-120-blue/p',
+'https://www.decathlon.com.br/bicicleta-aro-29-para-mountain-bike-rockrider-st540/p',
+'https://www.decathlon.com.br/bicicleta-aro-29-para-mountain-bike-rockrider-st520/p',
+'https://www.decathlon.com.br/bicicleta-mountain-bike-aro-26-rockrider-340-btwin-10862/p',
+'https://www.decathlon.com.br/bicicleta-feminina-para-mountain-bike-rockrider-340/p',
+'https://www.decathlon.com.br/bicicleta-aro-29--para-mountain-bike-rockrider-st900-15832/p',
+'https://www.decathlon.com.br/bicicleta-btt-xc-100-s-29--12v-preto-e-vermelho/p',
+'https://www.decathlon.com.br/xc-100-s-29--rr/p',
+'https://www.decathlon.com.br/xc-500-29--rr/p'
 ]
 
+#UrbanBikes
+# URLS=[
+# 'https://www.decathlon.com.br/bicicleta-feminina-lazer-aro-26-caloi-400/p',
+# 'https://www.decathlon.com.br/bicicleta-masculina-city-tour-sport/p',
+# 'https://www.decathlon.com.br/bicicleta-lazer-aro-26-caloi-400/p',
+# 'https://www.decathlon.com.br/bicicleta-feminina-mountain-bike-aro-26-rockrider-300-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-lazer-aro-26-caloi-rouge/p',
+# 'https://www.decathlon.com.br/bicicleta-mountain-bike-aro-26-rockrider-300-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-mountain-bike-lazer-aro-26-rockrider-100-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-de-cidade-aro-28-elops-classica-520-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-de-cidade-elops-520-quadro-baixo-vermelho/p',
+# 'https://www.decathlon.com.br/bicicleta-masculina-riverside-520/p',
+# 'https://www.decathlon.com.br/bicicleta-dobravel-tilt-500/p',
+# 'https://www.decathlon.com.br/bicicleta-de-cidade-aro-700-hoprider-100/p',
+# 'https://www.decathlon.com.br/bicicleta-feminina-riverside-520/p',
+# 'https://www.decathlon.com.br/bicicleta-eletrica-caloi-easy-rider-e-vibe/p',
+# 'https://decathlonpro.vteximg.com.br/arquivos/ids/2202461-150-150/folding-bike-tilt-100-black-unique1.jpg?v=636739846010300000',
+# 'https://decathlonpro.vteximg.com.br/arquivos/ids/2016317-150-150/--caloi-city-tour-feminina-sport-m1.jpg?v=636645117832600000'
+# ]
 
 for URL in URLS:
     page=requests.get(URL)
@@ -91,12 +121,12 @@ for URL in URLS:
     for pic in pics:
         link = pic['zoom']
         #Bikes.append(link)
-        download(link,'Kids_bikes')
+        download(link,'MountainBikes')
 
 # %% Renaming files
 i=58
-for file in os.listdir('Kids_bikes/'):
-    src = 'Kids_bikes/'+file
-    dst = 'Kids_bikes/'+str(i)+'.jpg'
+for file in os.listdir('MountainBikes/'):
+    src = 'MountainBikes/'+file
+    dst = 'MountainBikes/'+str(i)+'.jpg'
     i+=1
     os.rename(src,dst)
