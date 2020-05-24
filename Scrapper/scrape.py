@@ -43,32 +43,39 @@ def download(url, pathname):
 #URL = 'https://www.decathlon.com.br/bicicleta-de-estrada-triban-100-btwin/p'
 
 #Kids_bikes
-URLS =[
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-20--b-twin-original-500-14826/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-100-verde/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-robot-btwin/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-equilibrio-run-ride-btwin/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-16-btwin-astronaute/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-unicornio-btwin/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-500-laranja/p',
-# 'https://www.decathlon.com.br/-bicicleta-infantil-aro-20--rockrider-st500-/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-24--rockrider-st500/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-20-rockrider-st120-feminina/p',
+# URLS =[
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-20--b-twin-original-500-14826/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-100-verde/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-robot-btwin/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-equilibrio-run-ride-btwin/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-16-btwin-astronaute/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-unicornio-btwin/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-500-laranja/p',
+# # 'https://www.decathlon.com.br/-bicicleta-infantil-aro-20--rockrider-st500-/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-24--rockrider-st500/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-20-rockrider-st120-feminina/p',
+# # 'https://www.decathlon.com.br/--btwin-rr-500-branca/p',
+# # 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-btwin-mini-monsters/p'
 # 'https://www.decathlon.com.br/--btwin-rr-500-branca/p',
-# 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-btwin-mini-monsters/p'
-'https://www.decathlon.com.br/--btwin-rr-500-branca/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-14-btwin-mini-monsters/p',
-'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-500-rosa/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-20-racing-boy-btwin/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-16-doctor-girl-btwin/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-16-jack-pirabike-btwin/p',
-'https://www.decathlon.com.br/rockrider-st900-vermelho-24-br0000286/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-20--rockrider-st120-masculina/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-24--poply-500/p',
-'https://www.decathlon.com.br/monster-truck/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-16-btwin-exotic-princess/p',
-'https://www.decathlon.com.br/bicicleta-infantil-aro-20-mistigirl-btwin/p'
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-14-btwin-mini-monsters/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-de-equilibrio-aro-12-btwin-runride-500-rosa/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-20-racing-boy-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-16-doctor-girl-btwin/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-16-jack-pirabike-btwin/p',
+# 'https://www.decathlon.com.br/rockrider-st900-vermelho-24-br0000286/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-20--rockrider-st120-masculina/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-24--poply-500/p',
+# 'https://www.decathlon.com.br/monster-truck/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-16-btwin-exotic-princess/p',
+# 'https://www.decathlon.com.br/bicicleta-infantil-aro-20-mistigirl-btwin/p'
+# ]
+
+#MountainBikes
+URLS=[
+
 ]
+
+
 for URL in URLS:
     page=requests.get(URL)
 
