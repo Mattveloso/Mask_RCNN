@@ -16,10 +16,22 @@
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>-7</xmin>
-			<ymin>185</ymin>
-			<xmax>1009</xmax>
-			<ymax>795</ymax>
+			<xmin>0</xmin>
+			<ymin>143</ymin>
+			<xmax>1000</xmax>
+			<ymax>857</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>RoadBike</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>283</xmin>
+			<ymin>151</ymin>
+			<xmax>1000</xmax>
+			<ymax>837</ymax>
 		</bndbox>
 	</object>
 </annotation>

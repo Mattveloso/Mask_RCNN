@@ -10,17 +10,16 @@
 		<height>1000</height>
 		<depth>3</depth>
 	</size>
-
 	<object>
-		<name>MountainBike</name>
+		<name>RoadBike</name>
 		<pose>Unspecified</pose>
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>253</xmin>
-			<ymin>578</ymin>
-			<xmax>633</xmax>
-			<ymax>790</ymax>
+			<xmin>139</xmin>
+			<ymin>237</ymin>
+			<xmax>939</xmax>
+			<ymax>750</ymax>
 		</bndbox>
 	</object>
 </annotation>

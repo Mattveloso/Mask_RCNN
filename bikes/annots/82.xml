@@ -11,15 +11,15 @@
 		<depth>3</depth>
 	</size>
 	<object>
-		<name>Kids_bicycle</name>
+		<name>RoadBike</name>
 		<pose>Unspecified</pose>
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>77</xmin>
-			<ymin>85</ymin>
-			<xmax>929</xmax>
-			<ymax>915</ymax>
+			<xmin>146</xmin>
+			<ymin>81</ymin>
+			<xmax>956</xmax>
+			<ymax>948</ymax>
 		</bndbox>
 	</object>
 </annotation>

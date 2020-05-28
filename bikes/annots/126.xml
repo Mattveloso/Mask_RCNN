@@ -12,17 +12,15 @@
 	</size>
 
 	<object>
-		<name>MountainBike</name>
+		<name>RoadBike</name>
 		<pose>Unspecified</pose>
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>176</xmin>
-			<ymin>313</ymin>
-			<xmax>1000</xmax>
-			<ymax>842</ymax>
+			<xmin>340</xmin>
+			<ymin>580</ymin>
+			<xmax>595</xmax>
+			<ymax>884</ymax>
 		</bndbox>
 	</object>
-
-
 </annotation>

@@ -10,16 +10,32 @@
 		<height>1000</height>
 		<depth>3</depth>
 	</size>
+
+
+
+
 	<object>
-		<name>UrbanBike</name>
+		<name>KidsBike</name>
 		<pose>Unspecified</pose>
 		<truncated>Unspecified</truncated>
 		<difficult>Unspecified</difficult>
 		<bndbox>
-			<xmin>85</xmin>
-			<ymin>205</ymin>
-			<xmax>944</xmax>
-			<ymax>782</ymax>
+			<xmin>613</xmin>
+			<ymin>561</ymin>
+			<xmax>743</xmax>
+			<ymax>746</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>KidsBike</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>513</xmin>
+			<ymin>522</ymin>
+			<xmax>627</xmax>
+			<ymax>724</ymax>
 		</bndbox>
 	</object>
 </annotation>
