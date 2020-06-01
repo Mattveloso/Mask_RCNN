@@ -1,4 +1,143 @@
-# Mask R-CNN for Object Detection and Segmentation
+# How to Run the code (by Matt)
+
+This implementation of Mask R-CNN was developed by our Austrian Startup to meet client requirements.
+Below you'll find a guide on how to run the code from our Google Colaboratory. If you need the link please e-mail me at mattheusveloso2@hotmail.com. Otherwise just use the BikeRecognition.ipynb file in the root of this repository
+
+## Step 0: Preparation
+To prepare to run you need to make sure to be running on a GPU from colab, otherwise your code will take days to run (if not months).
+Inside google's colab, click on runtime -> change runtime type -> GPU.
+
+![](assets/runtime.png)
+
+## Step 1 - Installation
+The first step of running the code is to begin with the section "Step 1: Installing python libraries"
+Our implementation uses Mask-RCNN, Tensorflow 1.15.0 and Keras 2.25.0. it will *NOT* work with Tensorflow 2.0 due to Mask-RCNN's functions.
+
+Please run all the cells in sequence:
+"!git clone https://github.com/Mattveloso/Mask_RCNN.git" creates a copy of this repository's content inside google colab
+
+"from google.colab import drive
+drive.mount('/content/drive')"
+You will need to run this command and log in with your google drive credentials, please follow the instructions present in the cell. This is important because Github won't store our training file that we need to use to train the Neural Network. Please download it from:
+
+https://github.com/matterport/Mask_RCNN/releases/download/v2.0/mask_rcnn_coco.h5
+
+And place it in your Google drive in a folder called "Colab" (which has to be located at your gdrive's root). After it is uploade to your google drive and you've connected it to the Colaboratory, You will be able to train our AI.
+
+All the other fields in step 1 just need to be run in order to make sure all packages are correctly installed
+![](assets/step1.png)
+
+## Step 2 - preparing to run
+Now, to make sure that the networks has its core code that it needs to run, please run the following cells in sequece and unchaged.
+
+## Step 3 - quick training
+
+An important field to be chosen is the amount of epochs that the Ai should be trained for. Leaving technical jargon aside, this is imporant to choose for how long your AI will be trained for. The longer usually the better (though too much training if done wrongly may lead to an overfit model, or a model that works well on training data but not in unseen data). Therefore I'd recommend choosing between the commented lines of either 5 (quick training) or 50 epochs (long training) to train your data. 
+
+To train the neural network with the standard images of the project (obtained from Dectlhon.de's Fahrrad section) just run the code as-is. If you want to add more images please look at the next section on "how to train neural netowork". Make sure to comment out the unwanted line with the amount of epochs. (add/remove a # before the line to comment, commented code is ignored by the interpreter).
+
+![](assets/epochs.png)
+If you keep it like this, it will train the AI for around one hour. 5 epochs takes around 10 minutes and should be better for less technical demanding tests.
+
+## Step 4 - Test
+Now that you have trained your network, choose the most recent model trained and paste it on the code to be able to use it to predict.
+
+That can be done by accesing the sidebar from google's colab a, like in the image below:
+![](assets/files.png)
+Find the folder with the configuration files, it should look very similar to the picture below. If it does not show up click on refresh. If it still is not showing up you probably haven't trained the neural Network correctly.
+
+Open the folder, click on the last configuration with the right button (probably ends with a 5 or 50 from the amount of epochs you chose) and choose "Copy path". Paste this path in the right place in the testing cell (it says "add model here"):
+
+![](assets/paste.png)
+ 
+Finnaly, run this cell and the cell below. It will test a preset number of images from one of the test sets (there are four, one for each bike type). You can switch that by choosing the interval for the bike numbers inside the "range" parameters.
+
+![](assets/bikerange.png)
+
+
+## Bonus: Testing in unseen pictures
+If you with to test on a user-uploaded picture, upload one to the colab by running the cell on the "Bonus" part. After uploading and running both cells it will use the AI to guess what kind you bike your uploaded.
+
+Note that if nothing is displayed, the AI thinks that there is no bike in the picture.
+
+# How to train Neural Network on Dataset (by Matt)
+
+To train our implementation of this AI you will need Images with bikes and their labels. To do that I highly recommend that you use "Make Sense"
+
+https://www.makesense.ai/
+
+This allows you to input your images and label the correctly. Your images will need to be labeled as "MountainBikes, KidsBike, RoadBike or UrbanBike".
+
+Simply:
+- go to makesense's website;
+- click on get started;
+- upload your pictures (after naming them with numbers.jpg such as 1.jpg, 2.jpg, etc...) You can name them as you want but naming in this format will allow the code to run on an "as-is" basis. Make sure also to keep all roadbikes together (such as 1-10 are all roadbikes). The sequece has to be Roadbikes, Kidsbikes, Mountabikes and Urbanbikes to run as-is;
+- Click on Object Detection
+- Start project;
+- COCO SSD -> use model;
+- Reject any classes that Makesense suggest.
+- Create your own class in the "update labels names part"
+- Insert label name such as "MountainBike" and hit accept.
+
+![](assets/ClassCreation.png)
+
+- Using your mouse, put a box around the bike
+- click on select label, select your created label
+![](assets/selector.png)
+
+- After doing this to every single bike in all pictures, click on export labels
+- chose the opction ".zip package VOC XML"
+- Save it and extract.
+- Now, you have a file with the same name of the images you uploaded that the AI can understand to tell where the bike is and what kind of bike it is. 
+
+upload these pictures to your google drive folder, on a folder called bikes/images. Upload the labels in a folder called bikes/annots.
+
+### Changes in the code
+Now that you have uploaded these pictures (and hopefully also connected your google drive, you'll need to make changes to the code to run it).
+
+Well this could all also be done by using github, but this manual is for beginner users who might not have git expertise. Feel free to chose your upload method.
+
+On the step 2 part, you need to change the following code:
+
+"
+#Directory of images to run detection on
+IMAGE_DIR = g_path+'Mask_RCNN/bikes/images/'
+"
+
+and substitute for , IMAGE_DIR = g_path+'drive/My Drive/bikes/images/'
+
+Now, in the training cell, also change the same paths to the ones in your drive
+
+This code, specifically: 
+"
+train_set = BikesDataset()
+train_set.load_dataset(g_path+'Mask_RCNN/bikes/', is_train=True)
+train_set.prepare()
+print('Train: %d' % len(train_set.image_ids))
+
+test_set = BikesDataset()
+test_set.load_dataset(g_path+'Mask_RCNN/bikes/', is_train=False)
+test_set.prepare()
+print('Test: %d' % len(test_set.image_ids))
+"
+
+Not only that but you will have to organize the training and testing numbers. The cell right under step 3 creates a list for all images in each category, you need to change this one to match your uploaded files. (change the numbers inside the range argument).
+
+Also in the testing part changing the numbers inside the range function will be important, further info about this can be found under the "Step 4 - Test" of the "How to run the code" guide.
+
+Lastly, you will need to change which images go into training and testing. This needs to happen in 2 parts of the code, they can be found below:
+
+![](assets/loadmaskchanges.png)
+
+![](assets/otherchanges.png)
+
+Finally, please read the commented code to understand what all these changes mean, or e-mail me.
+
+Now, just run the training cell, if you made all the above changes correctly, it will train it. A training guide is also available on the "How to run the code" guide above.
+
+
+--------------------------------------------------------------------------------------------------------------------
+# Original Description Below: Mask R-CNN for Object Detection and Segmentation (By Original Authors of Mask-RCNN)
 
 This is an implementation of [Mask R-CNN](https://arxiv.org/abs/1703.06870) on Python 3, Keras, and TensorFlow. The model generates bounding boxes and segmentation masks for each instance of an object in the image. It's based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
 
